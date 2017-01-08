@@ -1,0 +1,2 @@
+module ArtistsPromoterHelper
+end
