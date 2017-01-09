@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108022744) do
+ActiveRecord::Schema.define(version: 20170109043032) do
 
   create_table "artpromos", force: :cascade do |t|
     t.string   "name"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20170108022744) do
 
   create_table "userjoins", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "artistspromoter_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["artistspromoter_id"], name: "index_userjoins_on_artistspromoter_id"
+    t.integer  "artpromo_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["artpromo_id"], name: "index_userjoins_on_artpromo_id"
     t.index ["user_id"], name: "index_userjoins_on_user_id"
   end
 

@@ -1,7 +1,7 @@
 <h1>Create a new artist</h2>
 
 
-<%= form_for :artpromo, url: artpromo_path(current_user.id) do |f| %>
+<%= form_for :artpromo, url: artpromo_index_path(current_user.id) do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>

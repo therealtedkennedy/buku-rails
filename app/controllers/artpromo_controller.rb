@@ -4,36 +4,23 @@ class ArtpromoController < ApplicationController
 
 	def new
 
-		
-
-		logger.info "in new user" 
-		logger.info current_user.id
-
 		@artpromo = current_user.artpromos.build
 		#@artpromo = Artpromo.new 
 		
 		logger.info @artpromo
 
-
-
 	end
 
 	def create
-		@Artistspromoter= current_user.artpromo.build(artpromo_params)
+
+
+		@Artistspromoter= current_user.artpromos.build(artpromo_params)
 
 		#@artpromo = Artpromo.new(artpromo_params)
 
 
-
-		logger.info "in create"
-		logger.info @Artistspromoter
-
-		#respond_to do |format|
-
-			#if artist.promo
 		@Artistspromoter.save
-		redirect_to @Artistspromoter
-
+		redirect_to dashboard_index_url
 
 	end
 
@@ -45,8 +32,8 @@ class ArtpromoController < ApplicationController
 
 
 	private
-		def event_params
-			params.require(:Artpromo).permit(:name, :email)
+		def artpromo_params
+			params.require(:artpromo).permit(:name, :email)
 		end
 
 end
