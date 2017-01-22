@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109043032) do
+ActiveRecord::Schema.define(version: 20170121214005) do
 
   create_table "artpromos", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20170109043032) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "userartpromos", force: :cascade do |t|
+    t.integer  "artpromo_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["artpromo_id"], name: "index_userartpromos_on_artpromo_id"
+    t.index ["user_id"], name: "index_userartpromos_on_user_id"
   end
 
   create_table "userjoins", force: :cascade do |t|

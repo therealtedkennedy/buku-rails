@@ -1,7 +1,7 @@
 class Artpromo < ApplicationRecord
 
-  has_many :userjoins
-  has_many :users, through: :userjoins
+  has_many :userartpromos
+  has_many :users, through: :userartpromos
 
 
 end

@@ -1,14 +1,25 @@
 <h1>Dashboard#index</h1>
 <p>Search For an event</p>
 
+<h1>current user is: <%= @user.id %> </h1>
 
 <h2>All your Artists and Promoters</h2>
 
 <ul>
-	<% @user.artpromos.each do |artpromo| %> 
+	<% @user.artpromos.find_each do |artpromo| %> 
 	 <li>Name: <%= artpromo.name %> </li>
 	 <li>Other: <%= artpromo.email %> </li>
 	<% end %>
 </ul>
 
+<h2> artist list </h2>
+<ul>
+  	<% Artpromo.find_each do |s| %>
+  	<li>Name: <%=s.name%> </li>
+    <li>Id: <%= s.id %> </li>
+    <li>User: <%= s.users.ids %> </li> 
+  		
+  	
+  	<% end %>	
+</ul>
 

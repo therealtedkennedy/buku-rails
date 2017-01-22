@@ -14,7 +14,7 @@ class ArtpromoController < ApplicationController
 	def create
 
 
-		@Artistspromoter= current_user.artpromos.build(artpromo_params)
+		@Artistspromoter= current_user.artpromos.create(artpromo_params)
 
 		#@artpromo = Artpromo.new(artpromo_params)
 
