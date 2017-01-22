@@ -1,4 +1,6 @@
 <h1>Dashboard#index</h1>
+
+<H2><%= link_to "New Artist or Promoter", :controller => "artpromo", :action => "new"  %> </h2>
 <p>Search For an event</p>
 
 <h1>current user is: <%= @user.id %> </h1>
@@ -9,6 +11,15 @@
 	<% @user.artpromos.find_each do |artpromo| %> 
 	 <li>Name: <%= artpromo.name %> </li>
 	 <li>Other: <%= artpromo.email %> </li>
+	<% end %>
+</ul>
+
+<h2>All your events</h2>
+
+<ul>
+	<% @user.events.find_each do |event| %> 
+	 <li>Name: <%= event.title %> </li>
+	 <li>Other: <%= event.description %> </li>
 	<% end %>
 </ul>
 

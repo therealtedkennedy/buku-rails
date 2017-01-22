@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121214005) do
+ActiveRecord::Schema.define(version: 20170122220926) do
+
+  create_table "artpromoevents", force: :cascade do |t|
+    t.integer  "artpromo_id"
+    t.integer  "event_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["artpromo_id"], name: "index_artpromoevents_on_artpromo_id"
+    t.index ["event_id"], name: "index_artpromoevents_on_event_id"
+  end
 
   create_table "artpromos", force: :cascade do |t|
     t.string   "name"
@@ -35,13 +44,13 @@ ActiveRecord::Schema.define(version: 20170121214005) do
     t.index ["user_id"], name: "index_userartpromos_on_user_id"
   end
 
-  create_table "userjoins", force: :cascade do |t|
+  create_table "userevents", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "artpromo_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["artpromo_id"], name: "index_userjoins_on_artpromo_id"
-    t.index ["user_id"], name: "index_userjoins_on_user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_userevents_on_event_id"
+    t.index ["user_id"], name: "index_userevents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

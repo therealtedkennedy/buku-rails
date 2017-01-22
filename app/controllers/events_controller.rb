@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+
+	before_filter :authenticate_user!
 	
 	def show
 		@event = Event.find(params[:id])
@@ -11,13 +13,14 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(event_params)
+		
+		@event= current_user.events.create(event_params)
 
 		logger.info "in create"
 		logger.info @event
 
-		@event.save
-		redirect_to @event
+		#@event.save
+		redirect_to dashboard_index_url
 	end
 
 

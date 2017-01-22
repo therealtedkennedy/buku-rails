@@ -16,10 +16,7 @@ class ArtpromoController < ApplicationController
 
 		@Artistspromoter= current_user.artpromos.create(artpromo_params)
 
-		#@artpromo = Artpromo.new(artpromo_params)
-
-
-		@Artistspromoter.save
+	
 		redirect_to dashboard_index_url
 
 	end
