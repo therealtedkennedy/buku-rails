@@ -1,36 +1,15 @@
-<h1>Dashboard#index</h1>
+<h1>Dashboard</h1>
 
 <H2><%= link_to "New Artist or Promoter", :controller => "artpromo", :action => "new"  %> </h2>
-<p>Search For an event</p>
-
-<h1>current user is: <%= @user.id %> </h1>
 
 <h2>All your Artists and Promoters</h2>
 
 <ul>
 	<% @user.artpromos.find_each do |artpromo| %> 
 	 <li>Name: <%= artpromo.name %> </li>
-	 <li>Other: <%= artpromo.email %> </li>
+	 <li>Artist or Promoter: <%= artpromo.artist_or_promoter %> </li>
+	 <!--<li><%= link_to "Edit", edit_artpromo_path(artpromo) %></li> -->
 	<% end %>
 </ul>
 
-<h2>All your events</h2>
-
-<ul>
-	<% @user.events.find_each do |event| %> 
-	 <li>Name: <%= event.title %> </li>
-	 <li>Other: <%= event.description %> </li>
-	<% end %>
-</ul>
-
-<h2> artist list </h2>
-<ul>
-  	<% Artpromo.find_each do |s| %>
-  	<li>Name: <%=s.name%> </li>
-    <li>Id: <%= s.id %> </li>
-    <li>User: <%= s.users.ids %> </li> 
-  		
-  	
-  	<% end %>	
-</ul>
 

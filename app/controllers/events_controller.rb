@@ -13,6 +13,8 @@ class EventsController < ApplicationController
 	end
 
 	def create
+
+		current_artist
 		
 		@event= current_user.events.create(event_params)
 

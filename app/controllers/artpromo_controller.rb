@@ -26,11 +26,27 @@ class ArtpromoController < ApplicationController
 
     end
 
+    def edit
+    	@artpromo = Artpromo.find(params[:id])
+
+    end	
+
+    def update
+ 		@artpromo = Artpromo.find(params[:id])
+
+ 		if @artpromo.update_attributes(artpromo_params)
+ 			redirect_to dashboard_index_url, :notice => "Updated"
+ 		else
+ 			render "edit", :notice => "Error"
+ 		end
+  
+    end	
+
 
 
 	private
 		def artpromo_params
-			params.require(:artpromo).permit(:name, :email)
+			params.require(:artpromo).permit(:name,:country,:city,:facebook,:soundcloud,:website,:genre,:artist_or_promoter) 
 		end
 
 end

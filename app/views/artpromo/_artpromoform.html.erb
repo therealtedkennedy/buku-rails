@@ -1,0 +1,49 @@
+<%= form_for :artpromo, url: artpromo_index_path(current_user.id) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </p>
+
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
+
+   <p>
+    <%= f.label :facebook, "Facebook Page" %><br>
+    <%= f.text_field :facebook %>
+  </p>
+
+
+   <p>
+    <%= f.label :soundcloud, "Soundcloud Page" %><br>
+    <%= f.text_field :soundcloud %>
+  </p>
+
+   <p>
+    <%= f.label :website, "Website" %><br>
+    <%= f.text_field :website %>
+  </p>
+
+  <p>
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre %>
+  </p>
+
+ 
+  <p>
+    <%= f.label :artist_or_promoter, "Are you and Artist or a promoter?" %><br>
+    <%= f.select :artist_or_promoter, ['Artist', 'Promter']%>
+  </p>
+
+ 
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+
+  <% end %>
